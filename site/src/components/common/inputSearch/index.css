@@ -1,0 +1,66 @@
+.input-search {
+    margin-top: 1rem;
+
+    width: 100%;
+    max-width: 736px;
+    padding: 7px 10px 6px 40px;
+    /* padding: 7px 10px 6px 20px; */
+
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.87);
+    background: transparent;
+    border-radius: 25px;
+    border: 1px solid #dadce0;
+    outline: 0;
+}
+
+.content-search {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 56px 8px 0;
+    align-items: center;
+    margin-top: -27.5%;
+}
+
+.content_logo {
+    height: 56px;
+}
+
+.icon-search {
+    height: 4.5rem;
+    /* width: 1rem; */
+    padding: 4px;
+    position: relative;
+    box-sizing: border-box;
+    top: 20%;
+    left: -26%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.icon-regioes {
+    /* height: 0.5rem; */
+    /* width: auto; */
+    padding: 4px;
+    position: absolute;
+    box-sizing: border-box;
+    top: 6%;
+    left: 73%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.content_regioes {
+    height: 35px;
+}
+
+.ant-modal-content {
+    border-radius: 20px;
+}
+
+.itens-modal {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}

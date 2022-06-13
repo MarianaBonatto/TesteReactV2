@@ -1,0 +1,24 @@
+.card {
+    display: flex;
+    flex: 1;
+    padding: 56px 8px 0;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20%;
+    margin-left: 35%;
+
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+}
+
+.bnt {
+    margin: 1rem;
+}
+
+.bnts {
+    display: flex;
+    justify-content: center;
+}
