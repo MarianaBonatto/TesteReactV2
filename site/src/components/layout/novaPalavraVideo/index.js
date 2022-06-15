@@ -50,7 +50,15 @@ class NovaPalavraVideo extends React.Component {
                     <Input.Group compact>
                         <Input style={{ width: 'calc(100% - 45px)' }} placeholder="Adicionar palavra"
                             onChange={evt => this.inserePalavra(evt.target.value)} /> {/* 100px */}
-                        <Button onClick={this.onClick} type="primary" >+</Button>
+                        <Button
+                            onClick={this.onClick}
+                            type="primary"
+                            style={{
+                                borderColor: '#ED6E0C',
+                                background: '#ED6E0C',
+                            }}>
+                            +
+                        </Button>
                     </Input.Group>
                     {/* --------------------------------------------------------- */}
                     <Select
@@ -85,7 +93,10 @@ class NovaPalavraVideo extends React.Component {
                     <Dragger>
                         {/* <Dragger {...props}> */}
                         <p className="ant-upload-drag-icon">
-                            <InboxOutlined />
+                            <InboxOutlined
+                                style={{
+                                    color: '#ED6E0C',
+                                }} />
                         </p>
                         <p className="ant-upload-text">Adicionar vídeo</p>
                     </Dragger>

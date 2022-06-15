@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import './index.css'
+
 import { Menu, Image, Button } from 'antd';
 import logo from '../../../imagens/logo.png';
 import {
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
     UserOutlined,
     SearchOutlined,
     SettingOutlined,
     FileSearchOutlined,
     LogoutOutlined,
-    ClockCircleOutlined
+    ClockCircleOutlined,
+    PlusCircleOutlined,
+    PlusOutlined
 } from '@ant-design/icons';
 
 const MenuLayout = () => {
@@ -45,14 +48,14 @@ const MenuLayout = () => {
                         label: <Link to='/pesquisa'>Pesquisar</Link>,
                     },
                     {
-                        key: 'settings',
-                        icon: <SettingOutlined />,
-                        label: <Link to='/config'>Configurações</Link>,
-                    },
-                    {
                         key: 'search-dictionary',
                         icon: <FileSearchOutlined />,
                         label: <Link to='/dicionario'>Dicionário</Link>,
+                    },
+                    {
+                        key: 'addIn-dictionary',
+                        icon: <PlusOutlined />,
+                        label: <Link to='/adicionar'>Novo</Link>,
                     },
                     {
                         key: 'pendding',
@@ -60,11 +63,15 @@ const MenuLayout = () => {
                         label: 'Pendentes',
                     },
                     {
+                        key: 'settings',
+                        icon: <SettingOutlined />,
+                        label: <Link to='/config'>Configurações</Link>,
+                    },
+                    {
                         key: 'logout',
                         icon: <LogoutOutlined />,
-                        label: 'Sair',
-                    },
-
+                        label: <Link to='/'>Sair</Link>,
+                    }
                 ]}
             />
         </div>

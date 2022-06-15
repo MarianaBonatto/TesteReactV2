@@ -32,10 +32,10 @@ const PageSearch = () => {
 
     return (
         <div className='content-search'>
-            <img class="content_logo" src={logo} alt="UI Clone" />
+            <img className="content_logo" src={logo} alt="UI Clone" />
             <input className='input-search' type='text' placeholder='Pesquisar palavra no dicionário' />
-            <div class="icon-search"><SearchOutlined /></div>
-            <div class="icon-regioes"><img class="content_regioes" src={regioes} onClick={showModal} /></div>
+            <div className="icon-search"><SearchOutlined /></div>
+            <div className="icon-regioes"><img className="content_regioes" src={regioes} onClick={showModal} /></div>
 
             <Modal
                 visible={visible}

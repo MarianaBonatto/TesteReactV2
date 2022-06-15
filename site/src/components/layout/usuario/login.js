@@ -4,6 +4,7 @@ import logo from './../../../imagens/logo.png'
 
 import { Card, Space, Comment, Avatar, Imput, Button } from 'antd'
 import ImputProfile from '../../common/inputProfile';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -22,6 +23,19 @@ const Login = () => {
                 <ImputProfile HolderImput='Senha:' />
             </div>
             <div className='bnts'>
+
+                <Button
+                    className='bnt'
+                    style={{
+                        color: '#ED6E0C',
+                        borderColor: '#ED6E0C',
+                        width: '35%'
+                    }}
+                    // type="primary"
+                    shape="round">
+                    <Link to="cadastro">Cadastrar</Link>
+                </Button>
+
                 <Button
                     className='bnt'
                     style={{

@@ -18,7 +18,7 @@ const Configuracao = () => {
                 <ImputProfile HolderImput='Nome:' />
                 <ImputProfile HolderImput='Email:' />
                 <ImputProfile HolderImput='Cidade:' />
-                <ImputProfile HolderImput='*********' />
+                <ImputProfile HolderImput='Senha:' />
             </div>
             <div className='bnts'>
                 <Button
