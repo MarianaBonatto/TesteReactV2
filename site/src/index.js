@@ -4,15 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-var express = require('express');
-var app = express();
-var path = require('path');
+// var express = require('express');
+// var app = express();
+// var path = require('path');
 
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
 
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
+// app.get("/*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "index.html"));
+// });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
