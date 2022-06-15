@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './index.css'
-
 import { Menu, Image, Button } from 'antd';
 import logo from '../../../imagens/logo.png';
 import {
