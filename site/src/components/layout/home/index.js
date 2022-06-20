@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
 
+import { i18n } from '../../../translate/i18n';
+
 import { Input, Modal, Button } from 'antd'
 import { SearchOutlined, RightOutlined } from '@ant-design/icons';
 
@@ -33,7 +35,7 @@ const PageSearch = () => {
     return (
         <div className='content-search'>
             <img className="content_logo" src={logo} alt="UI Clone" />
-            <input className='input-search' type='text' placeholder='Pesquisar palavra no dicionário' />
+            <input className='input-search' type='text' placeholder={i18n.t('pesquisa.input')} />
             <div className="icon-search"><SearchOutlined /></div>
             <div className="icon-regioes"><img className="content_regioes" src={regioes} onClick={showModal} /></div>
 
@@ -45,8 +47,12 @@ const PageSearch = () => {
                 style={{ borderRadius: "20px" }}
                 width={400}
                 footer={[
-                    <Button key="back" type="primary" onClick={handleCancel} shape="round">
-                        Cancelar
+                    <Button key="back" type="primary" onClick={handleCancel} shape="round"
+                        style={{
+                            borderColor: '#ED6E0C',
+                            background: '#ED6E0C'
+                        }}>
+                        {i18n.t('botoes.cancelar')}
                     </Button>,
                     // <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
                     //     Submit
@@ -66,23 +72,23 @@ const PageSearch = () => {
                     <p> </p>
                 </div>
                 <div className='itens-modal'>
-                    <p>Norte </p>
+                    <p>{i18n.t('regioes.norte')} </p>
                     <RightOutlined />
                 </div>
                 <div className='itens-modal'>
-                    <p>Nordeste </p>
+                    <p>{i18n.t('regioes.nordeste')} </p>
                     <RightOutlined />
                 </div>
                 <div className='itens-modal'>
-                    <p>Sul </p>
+                    <p>{i18n.t('regioes.sul')} </p>
                     <RightOutlined />
                 </div>
                 <div className='itens-modal'>
-                    <p>Sudeste </p>
+                    <p>{i18n.t('regioes.sudeste')} </p>
                     <RightOutlined />
                 </div>
                 <div className='itens-modal'>
-                    <p>Centro-Oeste </p>
+                    <p>{i18n.t('regioes.centroOeste')} </p>
                     <RightOutlined />
                 </div>
             </Modal>

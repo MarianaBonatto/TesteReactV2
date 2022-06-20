@@ -2,6 +2,8 @@ import React from 'react';
 import './index.css';
 import logo from './../../../imagens/logo.png'
 
+import { i18n } from '../../../translate/i18n';
+
 import { Card, Space, Comment, Avatar, Imput, Button } from 'antd'
 import ImputProfile from '../../common/inputProfile';
 import { Link } from 'react-router-dom';
@@ -19,8 +21,8 @@ const Login = () => {
             }}>
             <div className='avatar'><img style={{ width: '40%', height: 'auto' }} src={logo} alt="Nath" /></div>
             <div>
-                <ImputProfile HolderImput='Email:' />
-                <ImputProfile HolderImput='Senha:' />
+                <ImputProfile HolderImput={i18n.t('configPerfil.email')} />
+                <ImputProfile HolderImput={i18n.t('configPerfil.senha')} type='*' />
             </div>
             <div className='bnts'>
 
@@ -33,7 +35,7 @@ const Login = () => {
                     }}
                     // type="primary"
                     shape="round">
-                    <Link to="cadastro">Cadastrar</Link>
+                    <Link to="cadastro">{i18n.t('botoes.cadastrar')}</Link>
                 </Button>
 
                 <Button
@@ -45,7 +47,7 @@ const Login = () => {
                     }}
                     type="primary"
                     shape="round">
-                    Entrar
+                    {i18n.t('botoes.entrar')}
                 </Button>
 
             </div>

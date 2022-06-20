@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Menu, Image, Button } from 'antd';
+import { i18n } from '../../../translate/i18n';
+
+import { Menu, Image, Button, Switch } from 'antd';
 import logo from '../../../imagens/logo.png';
 import {
     UserOutlined,
@@ -11,7 +13,8 @@ import {
     LogoutOutlined,
     ClockCircleOutlined,
     PlusCircleOutlined,
-    PlusOutlined
+    PlusOutlined,
+    TranslationOutlined
 } from '@ant-design/icons';
 
 const MenuLayout = () => {
@@ -43,32 +46,47 @@ const MenuLayout = () => {
                     {
                         key: 'search',
                         icon: <SearchOutlined />,
-                        label: <Link to='/pesquisa'>Pesquisar</Link>,
+                        label: <Link to='/pesquisa'>{i18n.t('menu.pesquisar')}</Link>,
                     },
                     {
                         key: 'search-dictionary',
                         icon: <FileSearchOutlined />,
-                        label: <Link to='/dicionario'>Dicionário</Link>,
+                        label: <Link to='/dicionario'>{i18n.t('menu.dicionario')}</Link>,
                     },
                     {
                         key: 'addIn-dictionary',
                         icon: <PlusOutlined />,
-                        label: <Link to='/adicionar'>Novo</Link>,
+                        label: <Link to='/adicionar'>{i18n.t('menu.novo')}</Link>,
                     },
                     {
                         key: 'pendding',
                         icon: <ClockCircleOutlined />,
-                        label: 'Pendentes',
+                        label: <Link to='/'>{i18n.t('menu.pendentes')}</Link>,
                     },
                     {
                         key: 'settings',
                         icon: <SettingOutlined />,
-                        label: <Link to='/config'>Configurações</Link>,
+                        label: <Link to='/config'>{i18n.t('menu.configuracoes')}</Link>,
                     },
+                    // {
+                    //     key: 'language',
+                    //     icon: <TranslationOutlined />,
+                    //     label: 'Idioma',
+                    //     children: [
+                    //         {
+                    //             key: 'pt',
+                    //             label: 'Português',
+                    //         },
+                    //         {
+                    //             key: 'en',
+                    //             label: 'English',
+                    //         },
+                    //     ]
+                    // },
                     {
                         key: 'logout',
                         icon: <LogoutOutlined />,
-                        label: <Link to='/'>Sair</Link>,
+                        label: <Link to='/'>{i18n.t('menu.sair')}</Link>,
                     }
                 ]}
             />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
+import { i18n } from '../../../translate/i18n';
 
 import {
     Input,
@@ -48,7 +49,7 @@ class NovaPalavraVideo extends React.Component {
                 }}>
                 <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
                     <Input.Group compact>
-                        <Input style={{ width: 'calc(100% - 45px)' }} placeholder="Adicionar palavra"
+                        <Input style={{ width: 'calc(100% - 45px)' }} placeholder={i18n.t('novo.adicionarPalavra')}
                             onChange={evt => this.inserePalavra(evt.target.value)} /> {/* 100px */}
                         <Button
                             onClick={this.onClick}
@@ -64,7 +65,7 @@ class NovaPalavraVideo extends React.Component {
                     <Select
                         style={{ width: '100%' }} //60px
                         showSearch
-                        placeholder="Selecione uma palavra"
+                        placeholder={i18n.t('novo.selecionePalavra')}
                         optionFilterProp="children"
                         onChange={this.handleChange}
                         filterOption={(input, option) =>
@@ -76,18 +77,18 @@ class NovaPalavraVideo extends React.Component {
                     <Select
                         style={{ width: '100%' }} //60px
                         showSearch
-                        placeholder="Selecione a região"
+                        placeholder={i18n.t('novo.selecioneRegiao')}
                         optionFilterProp="children"
                         filterOption={(input, option) =>
                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                         }>
 
                         <Option value="0">. . .</Option>
-                        <Option value="1">Norte</Option>
-                        <Option value="2">Nordeste</Option>
-                        <Option value="3">Sul</Option>
-                        <Option value="4">Sudeste</Option>
-                        <Option value="5">Centro-Oeste</Option>
+                        <Option value="1">{i18n.t('regioes.norte')}</Option>
+                        <Option value="2">{i18n.t('regioes.nordeste')}</Option>
+                        <Option value="3">{i18n.t('regioes.sul')}</Option>
+                        <Option value="4">{i18n.t('regioes.sudeste')}</Option>
+                        <Option value="5">{i18n.t('regioes.centroOeste')}</Option>
                     </Select>
                     {/* ----------------------------------------- */}
                     <Dragger>
@@ -98,7 +99,7 @@ class NovaPalavraVideo extends React.Component {
                                     color: '#ED6E0C',
                                 }} />
                         </p>
-                        <p className="ant-upload-text">Adicionar vídeo</p>
+                        <p className="ant-upload-text">{i18n.t('novo.adicionarVideo')}</p>
                     </Dragger>
 
                     {/* ------------------------------------------ */}
@@ -113,14 +114,14 @@ class NovaPalavraVideo extends React.Component {
                                 background: '#ED6E0C',
                                 borderColor: '#ED6E0C'
                             }}
-                            type="primary">Cancelar</Button>
+                            type="primary">{i18n.t('botoes.cancelar')}</Button>
 
                         <Button style={{
                             borderColor: '#ED6E0C',
                             color: '#ED6E0C',
                         }}
                             onClick={this.newPost}
-                        >Salvar</Button>
+                        >{i18n.t('botoes.salvar')}</Button>
                     </Space>
                 </Space>
             </Card>

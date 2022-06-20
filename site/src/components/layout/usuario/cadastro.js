@@ -2,6 +2,8 @@ import React from 'react';
 import './index.css';
 import logo from './../../../imagens/logo.png'
 
+import { i18n } from '../../../translate/i18n';
+
 import { Card, Space, Comment, Avatar, Imput, Button } from 'antd'
 import ImputProfile from '../../common/inputProfile';
 
@@ -18,10 +20,10 @@ const Cadastro = () => {
             }}>
             <div className='avatar'><img style={{ width: '40%', height: 'auto' }} src={logo} alt="Nath" /></div>
             <div>
-                <ImputProfile HolderImput='Nome:' />
-                <ImputProfile HolderImput='Email:' />
-                <ImputProfile HolderImput='Cidade:' />
-                <ImputProfile HolderImput='Senha:' />
+                <ImputProfile HolderImput={i18n.t('configPerfil.nome')} />
+                <ImputProfile HolderImput={i18n.t('configPerfil.email')} />
+                <ImputProfile HolderImput={i18n.t('configPerfil.cidade')} />
+                <ImputProfile HolderImput={i18n.t('configPerfil.senha')} type='*' />
             </div>
             <div className='bnts'>
                 <Button
@@ -33,7 +35,7 @@ const Cadastro = () => {
                     }}
                     type="primary"
                     shape="round">
-                    Cadastrar
+                    {i18n.t('botoes.cadastrar')}
                 </Button>
 
             </div>

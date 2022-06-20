@@ -8,11 +8,13 @@ const { Search } = Input;
 
 const ImputProfile = props => {
 
-    const { HolderImput } = { ...props };
+    const { HolderImput, type } = { ...props };
+
+    const tipoInput = type == '*' ? 'password' : 'text'
 
     return (
         <div className='content-profile'>
-            <input className='input-profile' type='text' placeholder={HolderImput} />
+            <input className='input-profile' type={tipoInput} placeholder={HolderImput} />
         </div>
     );
 };
