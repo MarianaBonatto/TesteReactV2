@@ -4,7 +4,7 @@ import { i18n } from "../../../translate/i18n";
 
 import "./index.css";
 
-import api from "../../services/midia";
+import api from "../../../services/midia";
 import { postPalavra, getPalavra } from "../../../services/palavra";
 
 import { Input, Button, Select } from "antd";
