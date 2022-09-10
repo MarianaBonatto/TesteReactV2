@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { i18n } from "../../../translate/i18n";
 
-import UploadVideo from "../uploadVideo";
 
 import "./index.css";
 
