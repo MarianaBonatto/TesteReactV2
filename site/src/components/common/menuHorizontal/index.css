@@ -1,0 +1,45 @@
+/* .ant-menu-overflow-item .ant-menu-item .ant-menu-item-selected::after {
+    background-color: brown;
+    color: red;
+    background: red !important;
+
+} */
+
+.layout-sider-menu {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    /* position: fixed; */
+    /* top: 0; */
+    z-index: 1000;
+}
+
+/* .menu-item {
+    width: 90px !important;
+    max-height: 20% !important;
+} */
+
+
+.menu-logo-class {
+    margin-left: 10%;
+}
+
+.menu-inicio-class {
+    margin-left: 39%;
+}
+
+.lw1-class {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    /* font-family: 'Suez One', Verdana, sans-serif; */
+    color: #F27B13;
+    font-size: 1rem;
+}
+
+.lw2-class {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    /* font-family: 'Suez One', Verdana, sans-serif; */
+    color: #1EA672;
+    /* 2CF237 2B05A6*/
+    font-size: 1rem;
+}

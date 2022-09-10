@@ -3,13 +3,11 @@ import './index.css';
 
 import { i18n } from '../../../translate/i18n';
 
-import { Input, Modal, Button } from 'antd'
+import { Modal, Button } from 'antd'
 import { SearchOutlined, RightOutlined } from '@ant-design/icons';
 
 import logo from '../../../imagens/logoBranca.png';
 import regioes from '../../../imagens/regioes.jpg';
-
-const { Search } = Input;
 
 const PageSearch = () => {
 
@@ -54,18 +52,6 @@ const PageSearch = () => {
                         }}>
                         {i18n.t('botoes.cancelar')}
                     </Button>,
-                    // <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
-                    //     Submit
-                    // </Button>,
-                    // <Button
-                    //     key="link"
-                    //     href="https://google.com"
-                    //     type="primary"
-                    //     loading={loading}
-                    //     onClick={handleOk}
-                    // >
-                    //     Search on Google
-                    // </Button>,
                 ]}
             >
                 <div className='itens-modal'>

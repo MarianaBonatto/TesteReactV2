@@ -1,0 +1,99 @@
+.intro {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 4% 0%;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 13px;
+}
+
+span.lw1-intro {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    /* font-family: 'Suez One', Verdana, sans-serif; */
+    color: #F27B13;
+    font-size: 5rem;
+}
+
+span.lw2-intro {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    /* font-family: 'Suez One', Verdana, sans-serif; */
+    color: #1EA672;
+    /* 1E46A6 */
+    font-size: 5rem;
+}
+
+.intro-txt {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.login {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 7% 5%;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 13px;
+}
+
+/* .form-login {
+    width: 50%;
+    margin-left: -1rem;
+} */
+
+/* .login-form {
+    margin-top: 3rem;
+    width: 100%;
+    margin-left: -10rem;
+} */
+
+.register {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 2% 5%;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 13px;
+}
+
+.form-cadastro {
+    width: 50%;
+}
+
+.register-form {
+    margin-top: 3rem;
+    width: 100%;
+    margin-left: -10rem;
+}
+
+.register-form .bnt {
+    display: flex;
+    margin-left: 27%;
+    padding: 0 40%;
+}
+
+.login h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    /* font-family: 'Suez One', Verdana, sans-serif; */
+    color: #F27B13;
+    font-size: 3rem;
+}
+
+.form-cadastro h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    color: #F27B13;
+    font-size: 3rem;
+}

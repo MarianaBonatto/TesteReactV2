@@ -1,13 +1,19 @@
 const messages = {
     en: {
         translations: {
+            idioma: {
+                pt: 'Portuguese',
+                en: 'English'
+            },
             menu: {
                 pesquisar: 'Search',
                 dicionario: 'Dictionary',
                 novo: 'New',
                 pendentes: 'Pending',
                 configuracoes: 'Settings',
-                sair: 'Logout'
+                sair: 'Logout',
+                inicio: 'Home',
+                perfil: 'Profile'
             },
             botoes: {
                 cancelar: 'Cancel',
@@ -33,10 +39,35 @@ const messages = {
                 adicionarVideo: 'Add video'
             },
             configPerfil: {
-                nome: 'Name: ',
-                email: 'Email: ',
-                cidade: 'City: ',
-                senha: 'Password: '
+                nome: 'Name ',
+                email: 'Email ',
+                cidade: 'City ',
+                estado: 'State',
+                regiao: 'Region',
+                senha: 'Password ',
+                confirmarSenha: 'Confirm'
+            },
+            validacao: {
+                emailInvalido: 'The input is not valid E-mail!',
+                inputEmail: 'Please input your E-mail!',
+                inputPassword: 'Please input your password!',
+                inputName: 'Please input your name!',
+                inputState: 'Please input your state!',
+                oneNumber: 'The password must contain at least one number.',
+                oneLower: 'The password must contain at least one lowercase letter.',
+                oneUpper: 'The password should contain at least 1 uppercase character.',
+                oneSpecial: 'The password must contain at least one special character.',
+                eightCaracter: 'The password needs a minimum of eight characters.'
+            },
+            pendente: {
+                palavra: 'Word',
+                status: 'Status',
+                acao: 'Action',
+                aprovado: 'Approved',
+                reprovado: 'Disapproved',
+                analise: 'Analysis',
+                aprove: 'Approve',
+                reprove: 'Disapprove'
             }
         }
     }

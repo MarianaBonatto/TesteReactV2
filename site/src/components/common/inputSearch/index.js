@@ -34,11 +34,13 @@ const ImputSearchCommon = () => {
 
     return (
         <div className='content-search-common'>
-            <input className='input-search-common' type='text' placeholder={i18n.t('pesquisa.input')} />
-            <div class="icon-search-common"><SearchOutlined /></div>
-            <div class="icon-regioes-common"><img class="content_regioes-common" src={regioes} onClick={showModal} /></div>
+            <SearchOutlined className='icon-search-common' />
+            <input className='input-search-common' type='text' placeholder={i18n.t('pesquisa.input')} ></input>
 
-            <Modal
+            {/* <div class="icon-search-common"><SearchOutlined className='icon-search-common'/></div> */}
+            {/* <div class="icon-regioes-common"><img class="content_regioes-common" src={regioes} onClick={showModal} /></div> */}
+
+            {/* <Modal
                 visible={visible}
                 title=""
                 onOk={handleOk}
@@ -78,7 +80,7 @@ const ImputSearchCommon = () => {
                     <p>{i18n.t('regioes.centroOeste')} </p>
                     <RightOutlined />
                 </div>
-            </Modal>
+            </Modal> */}
         </div>
     );
 };

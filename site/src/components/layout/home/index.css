@@ -1,5 +1,5 @@
 .input-search {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 
     width: 100%;
     max-width: 736px;
@@ -19,7 +19,7 @@
     flex-direction: column;
     padding: 56px 8px 0;
     align-items: center;
-    margin-top: -15%;
+    /* margin-top: -15%; ------------------------------------------------------*/
 }
 
 .content_logo {

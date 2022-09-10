@@ -1,0 +1,59 @@
+.content-perfil {
+    justify-content: center;
+    background-color: white;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-bottom: 20%;
+}
+
+.upper-container {
+    background: #f59a4a;
+    height: 15rem;
+    /* linear-gradient(to left, #F27B13, #1EA672); f9bb84*/
+}
+
+.img-perfil {
+    /* color: #f56a00;
+    background-color: #fde3cf;*/
+
+    width: 20%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 100%;
+    padding: 1rem;
+    transform: translate(90%, 60%);
+}
+
+img.perfil {
+    border: 0.25rem solid #1EA672;
+    border-radius: 100%;
+}
+
+.lower-container {
+    margin-left: 40%;
+    margin-top: -4rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    /* font-weight: 900;
+    color: #F27B13;
+     */
+    margin-bottom: 5rem;
+}
+
+.div-name-profile {
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.title-profile {
+    /* font-weight: 900; */
+    /* font-size: 2rem; */
+    color: #F27B13;
+}
+
+.cards-post {
+    display: flex;
+    justify-content: center;
+    height: 30rem;
+}

@@ -1,9 +1,57 @@
-.post {
-    /* width: 10%; */
-    /* height: 10%; */
+.content-dicionario-post {
+    /* display: flex; */
+    justify-content: center;
+    background-color: white;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-bottom: 27%;
+}
+
+.ant-input-affix-wrapper {
+    border-radius: 15px !important;
+    max-width: 736px;
+    padding: 7px 10px 6px 20px;
+    margin: 0 21.5%;
+    /* 40 no ultimo */
+}
+
+.botoes {
     display: flex;
+    justify-content: center;
+}
+
+
+.btn {
+    width: 7rem;
+    margin: 1rem;
+}
+
+/* .post { */
+/* width: 10%; */
+/* height: 10%; */
+/* display: flex;
     padding: 56px 8px 0;
     align-items: center;
+    justify-content: center; */
+/* margin-top: -8%; */
+/* } */
+
+.span-logo {
+    display: flex;
     justify-content: center;
-    margin-top: -8%;
+    padding-top: 10rem;
+}
+
+.lib {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    color: #F27B13;
+    font-size: 3rem;
+}
+
+.web {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    color: #1EA672;
+    font-size: 3rem;
 }

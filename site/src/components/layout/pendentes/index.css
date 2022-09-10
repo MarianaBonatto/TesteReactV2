@@ -1,0 +1,15 @@
+.content-pendentes {
+    justify-content: center;
+    background-color: white;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-bottom: 10%;
+}
+
+.search-content {
+    padding-top: 2rem;
+}
+
+.tabela {
+    padding: 2rem 20%;
+}
