@@ -8,7 +8,6 @@ import { postUsuario, getUsuario } from "../../../services/usuario";
 
 import { Button, Form, Input } from "antd";
 import { LockOutlined, UserOutlined, LoginOutlined } from "@ant-design/icons";
-import { Container } from "../uploadVideo/styles";
 
 import logo from "../../../imagens/libra-laranja.png";
 import imgRegister from "../../../imagens/img-register.png";
