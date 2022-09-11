@@ -43,3 +43,21 @@
     /* 2CF237 2B05A6*/
     font-size: 1rem;
 }
+
+@media screen and (max-width: 720px) {
+
+    .menu-logo-class {
+        margin-left: 5%;
+    }
+
+    .menu-inicio-class {
+        margin-left: 20%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .menu-logo-class {
+        margin-left: 0%;
+    }
+}

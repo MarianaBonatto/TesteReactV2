@@ -68,6 +68,13 @@ const messages = {
                 analise: 'Analysis',
                 aprove: 'Approve',
                 reprove: 'Disapprove'
+            },
+            textos: {
+                introducao: "In Brazil, the deaf community is very different from the hearing, mainly because of the language used, the Brazilian Sign Language, used to transmit ideas, feelings and experiences, however, this community is part of a minority, and that's how LibWeb was born, a platform that aims to carry out integration between these different cultures.",
+                sobreNos: "About us",
+                textoSobre: "We are a united team at the Federal Institute to carry out the Course Completion Work!",
+                contato: "Contact",
+                aplicacao: "Application"
             }
         }
     }

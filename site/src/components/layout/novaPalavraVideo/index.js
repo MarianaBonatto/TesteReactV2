@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { i18n } from "../../../translate/i18n";
 
+import UploadVideo from "../uploadVideo";
 
 import "./index.css";
 
-import api from "../../../services/midia";
+import midia from "../../../services/midia";
 import { postPalavra, getPalavra } from "../../../services/palavra";
+import { postVideo } from "../../../services/video";
 
 import { Input, Button, Select } from "antd";
 
@@ -18,6 +20,7 @@ class NovaPalavraVideo extends React.Component {
     collapsed: false,
     palavra: "",
     arrayPalavras: [],
+    videoRegioes: [],
     post: {
       palavra: "",
       linkVideo: "",
@@ -76,12 +79,22 @@ class NovaPalavraVideo extends React.Component {
     });
   };
 
-  newPost = () => {
+  videoRegiao = (regiao) => {
+    let regioes = this.state.videoRegioes;
+    if (regioes.includes(regiao)) {
+      regioes.splice(regioes.indexOf(regiao), 1);
+    } else {
+      regioes.push(regiao);
+    }
+    this.setState({ videoRegioes: regioes });
+  };
+
+  newPostVideo = () => {
     const data = new FormData();
-    console.log(this.state.uploadedFiles);
+
     this.state.uploadedFiles.forEach((uploadedFile) => {
       data.append("file", uploadedFile.file, uploadedFile.name);
-      api
+      midia
         .post("posts", data, {
           onUploadProgress: (e) => {
             const progress = parseInt(Math.round((e.loaded * 100) / e.total));
@@ -104,6 +117,54 @@ class NovaPalavraVideo extends React.Component {
           });
         });
     });
+  };
+  // 2022-09-07T22:20:02.591Z
+  newPost = () => {
+    this.newPostVideo();
+
+    if ((this.state.uploadedFiles.length = 1)) {
+      setTimeout(
+        // Essa função executa o callback dentro de alguns segundos, no caso, 20 seg.
+        function () {
+          if (this.state.uploadedFiles.length != 0) {
+            let data = {
+              data: this.getDate(),
+              indicador_publico: 0,
+              idLibweber: this.props.ID_LIBWEBER,
+              url_video: this.state.uploadedFiles[0].url,
+              regioes: this.state.videoRegioes,
+            };
+
+            postVideo(data);
+          } else {
+            console.log("VIDEO NÃO ENVIADO"); // ERRO
+          }
+        }.bind(this),
+        25000
+      );
+    } else {
+      console.log("INSIRA UM VIDEO"); // ERRO
+    }
+  };
+
+  getDate = () => {
+    const Data = new Date();
+    let date = // Formatação estranha que está na nossa API
+      Data.getFullYear() +
+      "-" +
+      Data.getMonth() +
+      "-" +
+      Data.getDate() +
+      "T" +
+      Data.getHours() +
+      ":" +
+      Data.getMinutes() +
+      ":" +
+      Data.getSeconds() +
+      ":" +
+      Data.getMilliseconds() +
+      "Z";
+    return date;
   };
 
   render() {
@@ -140,19 +201,54 @@ class NovaPalavraVideo extends React.Component {
             </Select>
           </div>
           <div className="botoes">
-            <Button className="btn" type="primary" shape="round">
+            <Button
+              className="btn"
+              type="primary"
+              shape="round"
+              onClick={() => {
+                this.videoRegiao(2);
+              }}
+            >
               {i18n.t("regioes.norte")}
             </Button>
-            <Button className="btn" type="primary" shape="round">
+            <Button
+              className="btn"
+              type="primary"
+              shape="round"
+              onClick={() => {
+                this.videoRegiao(3);
+              }}
+            >
               {i18n.t("regioes.sul")}
             </Button>
-            <Button className="btn" type="primary" shape="round">
+            <Button
+              className="btn"
+              type="primary"
+              shape="round"
+              onClick={() => {
+                this.videoRegiao(4);
+              }}
+            >
               {i18n.t("regioes.nordeste")}
             </Button>
-            <Button className="btn" type="primary" shape="round">
+            <Button
+              className="btn"
+              type="primary"
+              shape="round"
+              onClick={() => {
+                this.videoRegiao(1);
+              }}
+            >
               {i18n.t("regioes.sudeste")}
             </Button>
-            <Button className="btn" type="primary" shape="round">
+            <Button
+              className="btn"
+              type="primary"
+              shape="round"
+              onClick={() => {
+                this.videoRegiao(5);
+              }}
+            >
               {i18n.t("regioes.centroOeste")}
             </Button>
           </div>

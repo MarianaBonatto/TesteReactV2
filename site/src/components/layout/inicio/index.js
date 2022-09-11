@@ -34,11 +34,10 @@ const InitialPage = (props) => {
 
     if (libweber) {
       console.log("LOGADO");
-      props.onChangeLibweber(libweber.idTipo);
+      props.onChangeLibweber(libweber.idTipo, libweber.idLibweber);
     } else {
       console.log("NÃO LOGADO");
     }
-    console.log(props.tipLibweber);
   }
 
   const validatePassword = (rule, value, callback) => {
@@ -69,20 +68,18 @@ const InitialPage = (props) => {
   return (
     <div className="content">
       <div className="intro">
-        <div>
+        <div className="img-logo-inicio">
           <img src={logo} />
         </div>
         <div className="content-right">
           {" "}
-          <span className="lw1-intro">Lib</span>
-          <span className="lw2-intro">Web</span>
-          <p className="intro-txt">
-            No Brasil, a comunidade surda se diverge muito da ouvinte,
-            principalmente pela linguagem utilizada, a Lingua Brasileira de
-            Sinais, usada para transmitir ideias, sentimentos e vivências.
-          </p>
+          <div className="div-lib-web">
+            <span className="lw1-intro">Lib</span>
+            <span className="lw2-intro">Web</span>
+          </div>
+          <p className="intro-txt">{i18n.t("textos.introducao")}</p>
           <Button
-            className="bnt"
+            className="bnt first-button"
             style={{
               background: "#1EA672",
               borderColor: "#1EA672",
@@ -90,6 +87,7 @@ const InitialPage = (props) => {
             }}
             type="primary"
             shape="round"
+            onClick={() => window.location.href = '#login'}
           >
             {i18n.t("botoes.entrar")}
           </Button>
@@ -101,6 +99,7 @@ const InitialPage = (props) => {
               width: "6rem",
             }}
             shape="round"
+            onClick={() => window.location.href = '#register'}
           >
             {i18n.t("botoes.cadastrar")}
           </Button>
@@ -117,7 +116,7 @@ const InitialPage = (props) => {
         </div>
       </div>
 
-      <div className="login">
+      <div className="login" id="login">
         <div className="form-login">
           <h1> {i18n.t("botoes.entrar")}</h1>
           <Form
@@ -142,6 +141,7 @@ const InitialPage = (props) => {
               ]}
             >
               <Input
+                className="input-style"
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Email"
               />
@@ -157,6 +157,7 @@ const InitialPage = (props) => {
               hasFeedback
             >
               <Input.Password
+                className="input-style"
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 placeholder={i18n.t("configPerfil.senha")}
                 type="password"
@@ -166,7 +167,7 @@ const InitialPage = (props) => {
             <Form.Item>
               <Button
                 htmlType="submit"
-                className="login-form-button"
+                className="login-form-button bnt"
                 style={{
                   background: "#1EA672",
                   borderColor: "#1EA672",
@@ -178,6 +179,7 @@ const InitialPage = (props) => {
                 {i18n.t("botoes.entrar")}
               </Button>
               <Button
+                // className="bnt"
                 className="bnt"
                 style={{
                   backgroundColor: "#ED6E0C",
@@ -186,8 +188,9 @@ const InitialPage = (props) => {
                 }}
                 type="primary"
                 shape="round"
+                onClick={() => window.location.href = '#register'}
               >
-                <Link to="cadastro">{i18n.t("botoes.cadastrar")}</Link>
+                {i18n.t("botoes.cadastrar")}
               </Button>
             </Form.Item>
           </Form>
@@ -195,13 +198,13 @@ const InitialPage = (props) => {
 
         <div>
           <div>
-            <img style={{ width: "70%" }} src={imgLogin} />
+            <img style={{ width: "70%" }} src={imgLogin} className='imagem-ocultar' />
           </div>
         </div>
       </div>
-      <div className="register">
+      <div className="register" id="register">
         <div>
-          <img style={{ width: "60%" }} src={imgRegister} />
+          <img style={{ width: "60%" }} src={imgRegister} className='imagem-ocultar' />
         </div>
         <div className="form-cadastro">
           <h1> {i18n.t("botoes.cadastrar")}</h1>
@@ -223,6 +226,7 @@ const InitialPage = (props) => {
               ]}
             >
               <Input
+                className="input-style"
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder={i18n.t("configPerfil.nome")}
               />
@@ -240,7 +244,9 @@ const InitialPage = (props) => {
                 },
               ]}
             >
-              <Input prefix={<LoginOutlined />} placeholder="Email" />
+              <Input
+                className="input-style"
+                prefix={<LoginOutlined />} placeholder="Email" />
             </Form.Item>
 
             <Form.Item
@@ -253,6 +259,7 @@ const InitialPage = (props) => {
               ]}
             >
               <Input
+                className="input-style"
                 prefix={<img src={iconLocal} style={{ width: "15px" }} />}
                 placeholder={i18n.t("configPerfil.estado")}
               />
@@ -272,6 +279,7 @@ const InitialPage = (props) => {
               hasFeedback
             >
               <Input.Password
+                className="input-style"
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 placeholder={i18n.t("configPerfil.senha")}
                 type="password"
@@ -302,6 +310,7 @@ const InitialPage = (props) => {
               ]}
             >
               <Input.Password
+                className="input-style"
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 placeholder={i18n.t("configPerfil.confirmarSenha")}
               />

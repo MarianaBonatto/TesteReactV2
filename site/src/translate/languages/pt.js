@@ -68,6 +68,13 @@ const messages = {
                 analise: 'Análise',
                 aprove: 'Aprovar',
                 reprove: 'Reprovar'
+            },
+            textos: {
+                introducao: "No Brasil, a comunidade surda é muito diferente da ouvinte, principalmente por causa da língua utilizada, a Língua Brasileira de Sinais, utilizada para transmitir ideias, sentimentos e experiências, no entanto, esta comunidade faz parte de uma minoria, e assim nasceu a LibWeb, uma plataforma que visa realizar a integração entre essas diferentes culturas.",
+                sobreNos: "Sobre nós",
+                textoSobre: "Somos uma equipe unida no Instituto Federal para realizar o Trabalho de Conclusão de Curso!",
+                contato: "Contato",
+                aplicacao: "Aplicação"
             }
         }
     }

@@ -20,7 +20,10 @@ const MenuHorizontal = props => {
 
             <Menu mode="horizontal" defaultSelectedKeys={['']} className='menu-pai'>
                 <Menu.Item key="logo" style={{ width: '7%' }} className='menu-logo-class'>
-                    <img src={librasSinal} style={{ width: '100%' }} /> <span className='lw1-class'>Lib</span><span className='lw2-class'>Web</span>
+                    <Link to='/'><img src={librasSinal} style={{ width: '100%' }} />
+                        <span className='lw1-class'>Lib</span>
+                        <span className='lw2-class'>Web</span></Link>
+
                 </Menu.Item>
 
                 <Menu.Item key="inicio" icon={<HomeOutlined />} className='menu-inicio-class'>

@@ -7,7 +7,7 @@
     padding-bottom: 27%;
 }
 
-.ant-input-affix-wrapper {
+.input-postagens {
     border-radius: 15px !important;
     max-width: 736px;
     padding: 7px 10px 6px 20px;
@@ -54,4 +54,65 @@
     font-weight: 900;
     color: #1EA672;
     font-size: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+    .content-dicionario-post {
+        /* display: flex; */
+        /* justify-content: center; */
+        background-color: white;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        padding: 2.5rem;
+        padding-bottom: 45%;
+    }
+
+    .input-postagens {
+        border-radius: 15px !important;
+        max-width: 436px;
+        padding: 7px 10px 6px 0px;
+        margin: 0 0%;
+        /* 40 no ultimo --------------------------------------*/
+    }
+
+    .botoes {
+        display: inline;
+        justify-content: center;
+    }
+
+
+    .btn {
+        width: 7rem;
+        margin: 1rem;
+    }
+
+    /* .post { */
+    /* width: 10%; */
+    /* height: 10%; */
+    /* display: flex;
+    padding: 56px 8px 0;
+    align-items: center;
+    justify-content: center; */
+    /* margin-top: -8%; */
+    /* } */
+
+    .span-logo {
+        display: flex;
+        justify-content: center;
+        padding-top: 0rem;
+    }
+
+    .lib {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 900;
+        color: #F27B13;
+        font-size: 3rem;
+    }
+
+    .web {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 900;
+        color: #1EA672;
+        font-size: 3rem;
+    }
 }

@@ -4,7 +4,6 @@
     /* background-image: url('../../../imagens/background.png'); */
     background-color: #1EA672;
     /* #1E46A6; */
-    padding: 0 10%;
     justify-content: space-between;
 }
 
@@ -34,4 +33,37 @@
     font-size: 1rem;
     text-align: left;
     color: #151515;
+}
+
+a {
+    color: #F27B13;
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        display: list-item;
+        margin-top: 1.25rem;
+        background-color: #1EA672;
+        padding: 2% 0;
+        justify-content: left;
+    }
+
+    .topic {
+        margin: 5%;
+    }
+
+    .footer h1 {
+        display: flex;
+        font-family: 'Poppins', sans-serif;
+        color: #000000;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .footer p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        text-align: left;
+        color: #151515;
+    }
 }

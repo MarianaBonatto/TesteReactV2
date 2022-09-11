@@ -17,6 +17,7 @@ const Postagens = () => {
                 <div className='span-logo'><span className='lib'>Lib</span><span className='web'>Web</span></div>
 
                 <Input
+                    className='input-postagens'
                     prefix={<SearchOutlined />}
                     placeholder={i18n.t('pesquisa.input')} />
 

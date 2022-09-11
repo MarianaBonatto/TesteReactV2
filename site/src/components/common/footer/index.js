@@ -16,15 +16,16 @@ const FooterLayout = () => {
             <div className='footer'>
 
                 <div className='topic'>
-                    <h1>Sobre Nós</h1>
-                    <p>Somos uma equipe unida no Instituto Federal para realizar o Trabalho de Conclusão de Curso!</p>
+                    <h1>{i18n.t('textos.sobreNos')}</h1>
+                    <p>{i18n.t('textos.textoSobre')}</p>
                 </div>
                 <div className='topic'>
-                    <h1>Contato</h1>
-                    <p>libweb2021@gmail.com</p>
+                    <h1>{i18n.t('textos.contato')}</h1>
+                    <p> <a href='mailto:libweb2021@gmail.com'>libweb2021@gmail.com</a>
+                    </p>
                 </div>
                 <div className='topic'>
-                    <h1>Aplicação</h1>
+                    <h1>{i18n.t('textos.aplicacao')}</h1>
                     <p>Documentação da API</p>
                 </div>
                 {/* <div className='topic'> <img src={logo} /></div> */}

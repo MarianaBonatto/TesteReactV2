@@ -13,16 +13,20 @@ import Pendentes from "../components/layout/pendentes/index.js";
 import PerfilLayout from "../components/layout/profile/index.js";
 
 class Rotas extends React.Component {
-  state = { TIP_LIBWEBER: "" };
+  state = {
+    TIP_LIBWEBER: "",
+    ID_LIBWEBER: 0,
+  };
 
-  changeLibweberType = (tipo) => {
-    if (tipo === 2) {
+  changeLibweberType = (tipo, id) => {
+    if (tipo === 1) {
       this.setState({ TIP_LIBWEBER: "CUR" });
-    } else if (tipo === 1) {
+    } else if (tipo === 2) {
       this.setState({ TIP_LIBWEBER: "LIB" });
     } else {
       this.setState({ TIP_LIBWEBER: "" });
     }
+    this.setState({ ID_LIBWEBER: id });
   };
 
   render() {
@@ -41,7 +45,10 @@ class Rotas extends React.Component {
         <Route element={<Cadastro />} path="/cadastro" />
         <Route element={<Configuracao />} path="/config" />
         <Route element={<Postagens />} path="/dicionario" />
-        <Route element={<NovaPalavraVideo />} path="/adicionar" />
+        <Route
+          element={<NovaPalavraVideo ID_LIBWEBER={this.state.ID_LIBWEBER} />}
+          path="/adicionar"
+        />
         <Route element={<PageSearch />} path="/pesquisa" />
         <Route element={<MenuLayout />} path="/menu" />
         <Route
