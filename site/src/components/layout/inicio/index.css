@@ -34,11 +34,12 @@ span.lw2-intro {
 
 .login {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 1.25rem;
     margin-left: 2rem;
     margin-right: 2rem;
     padding: 7% 5%;
+    padding-left: 10%;
     align-items: center;
     background-color: #ffffff;
     /* border-radius: 13px; */
@@ -62,6 +63,7 @@ span.lw2-intro {
     margin-left: 2rem;
     margin-right: 2rem;
     padding: 2% 5%;
+    padding-left: 10%;
     align-items: center;
     background-color: #ffffff;
     /* border-radius: 13px; */
@@ -120,6 +122,10 @@ span.lw2-intro {
     .img-logo-inicio {
         display: flex;
         justify-content: center;
+    }
+
+    .imagem-logo-inicio-respons {
+        width: 65%;
     }
 
     .div-lib-web {

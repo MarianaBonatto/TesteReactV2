@@ -123,25 +123,24 @@ class NovaPalavraVideo extends React.Component {
     this.newPostVideo();
 
     if ((this.state.uploadedFiles.length = 1)) {
-      setTimeout(
-        // Essa função executa o callback dentro de alguns segundos, no caso, 20 seg.
-        function () {
-          if (this.state.uploadedFiles.length != 0) {
-            let data = {
-              data: this.getDate(),
-              indicador_publico: 0,
-              idLibweber: this.props.ID_LIBWEBER,
-              url_video: this.state.uploadedFiles[0].url,
-              regioes: this.state.videoRegioes,
-            };
+      let data = {
+        data: this.getDate(),
+        indicador_publico: 0,
+        idLibweber: this.props.ID_LIBWEBER,
+        url_video: this.state.uploadedFiles[0].url,
+        idPalavra: 1,
+        regioesIDS: this.state.videoRegioes,
+      };
 
-            postVideo(data);
-          } else {
-            console.log("VIDEO NÃO ENVIADO"); // ERRO
-          }
-        }.bind(this),
-        25000
-      );
+      console.log(this.state.palavra);
+
+      postVideo(data)
+        .then((res) => {
+          console.log("Deu bom");
+        })
+        .catch((err) => {
+          console.log("Deu ruim"); // Erro
+        });
     } else {
       console.log("INSIRA UM VIDEO"); // ERRO
     }
@@ -150,26 +149,39 @@ class NovaPalavraVideo extends React.Component {
   getDate = () => {
     const Data = new Date();
     let date = // Formatação estranha que está na nossa API
-      Data.getFullYear() +
-      "-" +
-      Data.getMonth() +
-      "-" +
       Data.getDate() +
-      "T" +
+      "/" +
+      Data.getMonth() +
+      "/" +
+      Data.getFullYear() +
+      " " +
       Data.getHours() +
       ":" +
       Data.getMinutes() +
       ":" +
-      Data.getSeconds() +
-      ":" +
-      Data.getMilliseconds() +
-      "Z";
+      Data.getSeconds();
+
     return date;
+  };
+
+  setPalavras = () => {
+    getPalavra()
+      .then((res) => {
+        let palavras = res.data;
+        this.setState({ arrayPalavras: palavras });
+      })
+      .catch((err) => {
+        this.setState({
+          arrayPalavras: [{ idPalavra: 0, palavra: "ERRO AO OBTER DADOS" }],
+        });
+      });
   };
 
   render() {
     let palavras = this.state.arrayPalavras.map((i) => (
-      <Option value={i}>{i}</Option>
+      <Option key={i.idPalavra} value={i.idPalavra}>
+        {i.palavra}
+      </Option>
     ));
     return (
       <div className="content-new">
@@ -190,12 +202,17 @@ class NovaPalavraVideo extends React.Component {
               className="select-word"
               // style={{ width: '100%' }} //60px
               showSearch
+              onFocus={(event) => {
+                this.setPalavras();
+              }}
               placeholder={i18n.t("novo.selecionePalavra")}
               optionFilterProp="children"
-              onChange={this.inserePalavra}
               filterOption={(input, option) =>
                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
               }
+              onSelect={(arg) => {
+                console.log(arg);
+              }}
             >
               {palavras}
             </Select>

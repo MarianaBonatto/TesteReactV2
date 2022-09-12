@@ -57,7 +57,13 @@ const messages = {
                 oneLower: 'The password must contain at least one lowercase letter.',
                 oneUpper: 'The password should contain at least 1 uppercase character.',
                 oneSpecial: 'The password must contain at least one special character.',
-                eightCaracter: 'The password needs a minimum of eight characters.'
+                eightCaracter: 'The password needs a minimum of eight characters.',
+                erroLogin: 'Incorrect email or password.',
+                sucessoLogin: 'Login successfully performed.',
+                sucessoCadastro: 'Registration successfully completed.',
+                erroCadastro: 'An error occurred while registering.',
+                confirmPassword: 'Please confirm your password!',
+                passwordsNoMatch: 'The two passwords that you entered do not match!'
             },
             pendente: {
                 palavra: 'Word',

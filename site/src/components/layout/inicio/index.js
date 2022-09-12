@@ -4,9 +4,11 @@ import "./index.css";
 import { Link } from "react-router-dom";
 import { i18n } from "../../../translate/i18n";
 
+import { createBrowserHistory } from "history"
+
 import { postUsuario, getUsuario } from "../../../services/usuario";
 
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import { LockOutlined, UserOutlined, LoginOutlined } from "@ant-design/icons";
 
 import logo from "../../../imagens/libra-laranja.png";
@@ -15,16 +17,32 @@ import imgLogin from "../../../imagens/img-login.png";
 import iconLocal from "../../../imagens/icon-local.png";
 
 const InitialPage = (props) => {
+
+  const [form] = Form.useForm();
+  const [formReg] = Form.useForm();
+  var logado = false;
+
   const onFinishRegister = (values) => {
-    // console.log('Received values of form: ', values);
     const usuario = {
       email: values.email,
-      idLibweber: 0,
+      estadoNome: values.uf,
+      // idLibweber: 0,
       idTipo: 2,
       nome: values.name,
       senha: values.password,
     };
-    postUsuario(usuario);
+
+    postUsuario(usuario)
+      .then((response) => {
+        message.success(i18n.t("validacao.sucessoCadastro"));
+        window.location.href = '#login';
+      })
+      .catch((error) => {
+        message.error(i18n.t("validacao.erroCadastro"))
+      });
+
+    formReg.resetFields();
+
   };
 
   async function onFinishLogin(values) {
@@ -33,10 +51,13 @@ const InitialPage = (props) => {
     let libweber = (await getUsuario(email, senha)).data;
 
     if (libweber) {
-      console.log("LOGADO");
+      message.success(i18n.t("validacao.sucessoLogin"));
       props.onChangeLibweber(libweber.idTipo, libweber.idLibweber);
+      logado = true;
     } else {
-      console.log("NÃO LOGADO");
+      form.resetFields();
+      message.error(i18n.t("validacao.erroLogin"));
+      logado = false;
     }
   }
 
@@ -69,7 +90,7 @@ const InitialPage = (props) => {
     <div className="content">
       <div className="intro">
         <div className="img-logo-inicio">
-          <img src={logo} />
+          <img className="imagem-logo-inicio-respons" src={logo} />
         </div>
         <div className="content-right">
           {" "}
@@ -120,6 +141,7 @@ const InitialPage = (props) => {
         <div className="form-login">
           <h1> {i18n.t("botoes.entrar")}</h1>
           <Form
+            form={form}
             name="normal_login"
             className="login-form"
             initialValues={{
@@ -176,7 +198,8 @@ const InitialPage = (props) => {
                 type="primary"
                 shape="round"
               >
-                {i18n.t("botoes.entrar")}
+                <Link to={logado ? "/dicionario" : "/"}>{i18n.t("botoes.entrar")}</Link>
+                {/* {i18n.t("botoes.entrar")} */}
               </Button>
               <Button
                 // className="bnt"
@@ -209,6 +232,7 @@ const InitialPage = (props) => {
         <div className="form-cadastro">
           <h1> {i18n.t("botoes.cadastrar")}</h1>
           <Form
+            form={formReg}
             name="normal_register"
             className="register-form"
             initialValues={{
@@ -293,7 +317,7 @@ const InitialPage = (props) => {
               rules={[
                 {
                   required: true,
-                  message: "Please confirm your password!",
+                  message: i18n.t("validacao.confirmPassword"),
                 },
                 ({ getFieldValue }) => ({
                   validator(_, value) {
@@ -301,9 +325,7 @@ const InitialPage = (props) => {
                       return Promise.resolve();
                     }
                     return Promise.reject(
-                      new Error(
-                        "The two passwords that you entered do not match!"
-                      )
+                      new Error(i18n.t("validacao.passwordsNoMatch"))
                     );
                   },
                 }),
@@ -320,11 +342,6 @@ const InitialPage = (props) => {
               <Button
                 htmlType="submit"
                 className="bnt"
-                // style={{
-                //     backgroundColor: '#ED6E0C',
-                //     borderColor: '#ED6E0C',
-                //     width: '6rem',
-                // }}
                 type="primary"
                 shape="round"
               >

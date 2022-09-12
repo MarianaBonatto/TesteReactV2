@@ -57,7 +57,14 @@ const messages = {
                 oneLower: 'A senha precisa conter no mínimo uma letra minúscula.',
                 oneUpper: 'A senha precisa conter no mínimo uma letra maiúscula.',
                 oneSpecial: 'A senha precisa conter no mínimo um caracter especial.',
-                eightCaracter: 'A senha precisa de no mínimo oito caracteres.'
+                eightCaracter: 'A senha precisa de no mínimo oito caracteres.',
+                erroLogin: 'Email ou senha incorreta.',
+                sucessoLogin: 'Login realizado com sucesso.',
+                sucessoCadastro: 'Cadastro realizado com sucesso.',
+                erroCadastro: 'Ocorreu um erro ao efetivar o cadastro.',
+                confirmPassword: 'Por favor, confirme sua senha!',
+                passwordsNoMatch: 'As duas senhas que você digitou não correspondem!'
+
             },
             pendente: {
                 palavra: 'Palavra',
