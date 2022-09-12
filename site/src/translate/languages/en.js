@@ -63,7 +63,10 @@ const messages = {
                 sucessoCadastro: 'Registration successfully completed.',
                 erroCadastro: 'An error occurred while registering.',
                 confirmPassword: 'Please confirm your password!',
-                passwordsNoMatch: 'The two passwords that you entered do not match!'
+                passwordsNoMatch: 'The two passwords that you entered do not match!',
+                sucessoVideo: 'Video successfully added!',
+                erroVideo: 'There was an error adding the video.',
+                adicioneUmVideo: 'Add a video!'
             },
             pendente: {
                 palavra: 'Word',
@@ -80,7 +83,12 @@ const messages = {
                 sobreNos: "About us",
                 textoSobre: "We are a united team at the Federal Institute to carry out the Course Completion Work!",
                 contato: "Contact",
-                aplicacao: "Application"
+                aplicacao: "Application",
+                adicionarNovasPalavras: 'Add new words',
+                adicionarNovosVideos: 'Add videos to dictionary',
+                insiraVideoAqui: 'Insert video here',
+                arquivoNaoSuportado: 'Unsupported file',
+                solteArquivosAqui: 'Upload the files here'
             }
         }
     }

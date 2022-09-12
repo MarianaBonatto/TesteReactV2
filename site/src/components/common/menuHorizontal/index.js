@@ -8,8 +8,12 @@ import librasSinal from '../../../imagens/libra-laranja.png';
 import iconSinalProfile from '../../../imagens/icon-sinal-profile.png';
 
 import { HomeOutlined, FileSearchOutlined, ClockCircleOutlined } from '@ant-design/icons';
-
-// const { languageChange } = { ...props };
+function refreshPage() {
+    setTimeout(() => {
+        window.location.reload(false);
+    }, 500);
+    console.log('page to reload')
+}
 const MenuHorizontal = props => {
 
     const { languageChange } = { ...props };
@@ -55,25 +59,11 @@ const MenuHorizontal = props => {
                     <Menu.Item key="new" icon='' >
                         <Link to='/adicionar'>{i18n.t('menu.novo')}</Link>
                     </Menu.Item>
+                    <Menu.Item key="logout" icon='' >
+
+                        <Link to='/' onClick={refreshPage}>{i18n.t('menu.sair')}</Link>
+                    </Menu.Item>
                 </Menu.SubMenu>
-
-
-                {/* <Menu.SubMenu key="SubMenu" title="Navigation Two - Submenu" icon={<SettingOutlined />}>
-                <Menu.Item key="two" icon={<AppstoreOutlined />}>
-                    Navigation Two
-                </Menu.Item>
-                <Menu.Item key="three" icon={<AppstoreOutlined />}>
-                    Navigation Three
-                </Menu.Item>
-                <Menu.ItemGroup title="Item Group">
-                    <Menu.Item key="four" icon={<AppstoreOutlined />}>
-                        Navigation Four
-                    </Menu.Item>
-                    <Menu.Item key="five" icon={<AppstoreOutlined />}>
-                        Navigation Five
-                    </Menu.Item>
-                </Menu.ItemGroup>
-            </Menu.SubMenu> */}
             </Menu >
         </Layout.Sider>
 

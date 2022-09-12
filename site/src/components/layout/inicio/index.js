@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import "./index.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { i18n } from "../../../translate/i18n";
-
-import { createBrowserHistory } from "history"
 
 import { postUsuario, getUsuario } from "../../../services/usuario";
 
@@ -20,7 +18,8 @@ const InitialPage = (props) => {
 
   const [form] = Form.useForm();
   const [formReg] = Form.useForm();
-  var logado = false;
+
+  const navigate = useNavigate();
 
   const onFinishRegister = (values) => {
     const usuario = {
@@ -53,11 +52,10 @@ const InitialPage = (props) => {
     if (libweber) {
       message.success(i18n.t("validacao.sucessoLogin"));
       props.onChangeLibweber(libweber.idTipo, libweber.idLibweber);
-      logado = true;
+      navigate("/dicionario");
     } else {
       form.resetFields();
       message.error(i18n.t("validacao.erroLogin"));
-      logado = false;
     }
   }
 
@@ -198,8 +196,7 @@ const InitialPage = (props) => {
                 type="primary"
                 shape="round"
               >
-                <Link to={logado ? "/dicionario" : "/"}>{i18n.t("botoes.entrar")}</Link>
-                {/* {i18n.t("botoes.entrar")} */}
+                {i18n.t("botoes.entrar")}
               </Button>
               <Button
                 // className="bnt"

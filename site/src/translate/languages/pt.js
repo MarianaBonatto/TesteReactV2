@@ -63,7 +63,10 @@ const messages = {
                 sucessoCadastro: 'Cadastro realizado com sucesso.',
                 erroCadastro: 'Ocorreu um erro ao efetivar o cadastro.',
                 confirmPassword: 'Por favor, confirme sua senha!',
-                passwordsNoMatch: 'As duas senhas que você digitou não correspondem!'
+                passwordsNoMatch: 'As duas senhas que você digitou não correspondem!',
+                sucessoVideo: 'Vídeo adicionado com sucesso!',
+                erroVideo: 'Ocorreu um erro ao adicionar o vídeo.',
+                adicioneUmVideo: 'Adicione um vídeo!'
 
             },
             pendente: {
@@ -81,7 +84,12 @@ const messages = {
                 sobreNos: "Sobre nós",
                 textoSobre: "Somos uma equipe unida no Instituto Federal para realizar o Trabalho de Conclusão de Curso!",
                 contato: "Contato",
-                aplicacao: "Aplicação"
+                aplicacao: "Aplicação",
+                adicionarNovasPalavras: 'Adicionar novas palavras',
+                adicionarNovosVideos: 'Adicionar vídeos ao dicionário',
+                insiraVideoAqui: 'Insira o vídeo aqui',
+                arquivoNaoSuportado: 'Arquivo não suportado',
+                solteArquivosAqui: 'Solte os arquivos aqui'
             }
         }
     }

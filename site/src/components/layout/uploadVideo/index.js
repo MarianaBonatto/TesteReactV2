@@ -30,8 +30,8 @@ export default class uploadVideo extends Component {
     const { uploadedFiles } = this.props;
 
     return (
-      <Container>
-        <Content>
+      <Container style={{ width: '50%', height: '50%' }}>
+        <Content >
           <UploadFile onUpload={this.handleUpload} />
           {!!uploadedFiles.length && (
             <FileList files={uploadedFiles} onDelete={this.setUploadedFiles} />

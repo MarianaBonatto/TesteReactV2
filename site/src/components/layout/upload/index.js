@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { i18n } from "../../../translate/i18n";
 
 import Dropzone from "react-dropzone";
 
@@ -9,15 +10,15 @@ export default class Upload extends Component {
   renderDragMessage = (isDragActive, isDragReject) => {
     if (!isDragActive) {
       return (
-        <UploadMessage type="warning">Insira o arquivo aqui</UploadMessage>
+        <UploadMessage type="warning">{i18n.t("textos.insiraVideoAqui")}</UploadMessage>
       );
     }
 
     if (isDragReject) {
-      return <UploadMessage type="error">Arquivo não suportado</UploadMessage>;
+      return <UploadMessage type="error">{i18n.t("textos.arquivoNaoSuportado")}</UploadMessage>;
     }
 
-    return <UploadMessage type="success">Solte os arquivos aqui</UploadMessage>;
+    return <UploadMessage type="success">{i18n.t("textos.solteArquivosAqui")}</UploadMessage>;
   };
 
   render() {
@@ -30,11 +31,20 @@ export default class Upload extends Component {
             {...getRootProps()}
             isDragActive={isDragActive}
             isDragReject={isDragReject}
+            style={{
+              width: '100%',
+              height: '100%',
+              border: '1px solid',
+              color: "#ED6E0C",
+            }}
           >
             <InboxOutlined
-              size={500}
+              // size={}
               style={{
                 color: "#ED6E0C",
+                display: 'flex',
+                justifyContent: 'center',
+                padding: '1rem'
               }}
             />
             <input {...getInputProps()} />

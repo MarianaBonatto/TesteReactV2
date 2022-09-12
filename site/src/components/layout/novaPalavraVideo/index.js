@@ -9,7 +9,7 @@ import midia from "../../../services/midia";
 import { postPalavra, getPalavra } from "../../../services/palavra";
 import { postVideo } from "../../../services/video";
 
-import { Input, Button, Select } from "antd";
+import { Input, Button, Select, Form, message } from "antd";
 
 import { PlusOutlined } from "@ant-design/icons";
 
@@ -19,6 +19,7 @@ class NovaPalavraVideo extends React.Component {
   state = {
     collapsed: false,
     palavra: "",
+    palavraVideo: 0,
     arrayPalavras: [],
     videoRegioes: [],
     post: {
@@ -33,18 +34,19 @@ class NovaPalavraVideo extends React.Component {
   };
 
   adicionarPalavra = () => {
-    this.setState({
-      arrayPalavras: [...this.state.arrayPalavras, this.state.palavra],
-    });
-
     const palavra = {
-      idCurador: 1,
-      idPalavra: 0,
+      idCurador: 2,
       palavra: this.state.palavra,
-      status: "AN",
-      url_video_oficial: " ",
+      status: "PN",
+      url_video_oficial: "https://youtu.be/P0GCLvDNgvo",
     };
-    postPalavra(palavra);
+    postPalavra(palavra)
+      .then((res) => {
+        console.log("Deu bom");
+      })
+      .catch((err) => {
+        console.log("Deu ruim"); // ERRO
+      });
   };
 
   retornaPalavra = () => {
@@ -89,11 +91,12 @@ class NovaPalavraVideo extends React.Component {
     this.setState({ videoRegioes: regioes });
   };
 
-  newPostVideo = () => {
+  newPost = () => {
     const data = new FormData();
 
     this.state.uploadedFiles.forEach((uploadedFile) => {
       data.append("file", uploadedFile.file, uploadedFile.name);
+
       midia
         .post("posts", data, {
           onUploadProgress: (e) => {
@@ -110,40 +113,41 @@ class NovaPalavraVideo extends React.Component {
             id: response.data.id,
             url: `https://drive.google.com/uc?export=view&id=${response.data.id}`,
           });
+
+          if (
+            (this.state.uploadedFiles.length = 1) &&
+            this.state.palavraVideo != 0
+          ) {
+            let dataVideo = {
+              data: this.getDate(),
+              indicador_publico: 0,
+              idLibweber: this.props.ID_LIBWEBER,
+              url_video: `https://drive.google.com/uc?export=view&id=${response.data.id}`,
+              idPalavra: this.state.palavraVideo,
+              regioesIDS: this.state.videoRegioes,
+            };
+            console.log(this.state.uploadedFiles);
+            postVideo(dataVideo)
+              .then((res) => {
+                message.success(i18n.t("validacao.sucessoVideo"));
+                console.log("Deu bom");
+                console.log(res);
+              })
+              .catch((err) => {
+                message.error(i18n.t("validacao.erroVideo"));
+                console.log("Deu ruim"); // Erro
+              });
+          } else {
+            console.log("Um video e uma palavra devem ser inseridos"); // ERRO
+          }
         })
         .catch(() => {
           this.updateFile(uploadedFile.id, {
             error: true,
           });
+          console.log("Video não subiu para o drive"); // ERRO
         });
     });
-  };
-  // 2022-09-07T22:20:02.591Z
-  newPost = () => {
-    this.newPostVideo();
-
-    if ((this.state.uploadedFiles.length = 1)) {
-      let data = {
-        data: this.getDate(),
-        indicador_publico: 0,
-        idLibweber: this.props.ID_LIBWEBER,
-        url_video: this.state.uploadedFiles[0].url,
-        idPalavra: 1,
-        regioesIDS: this.state.videoRegioes,
-      };
-
-      console.log(this.state.palavra);
-
-      postVideo(data)
-        .then((res) => {
-          console.log("Deu bom");
-        })
-        .catch((err) => {
-          console.log("Deu ruim"); // Erro
-        });
-    } else {
-      console.log("INSIRA UM VIDEO"); // ERRO
-    }
   };
 
   getDate = () => {
@@ -151,7 +155,7 @@ class NovaPalavraVideo extends React.Component {
     let date = // Formatação estranha que está na nossa API
       Data.getDate() +
       "/" +
-      Data.getMonth() +
+      (Data.getMonth() + 1) +
       "/" +
       Data.getFullYear() +
       " " +
@@ -186,17 +190,34 @@ class NovaPalavraVideo extends React.Component {
     return (
       <div className="content-new">
         <div className="content-word">
-          <h1>Adicionar novas palavras</h1>
-          <Input
-            className="input-new-word"
-            suffix={<PlusOutlined onClick={this.onClick} />}
-            placeholder={i18n.t("novo.adicionarPalavra")}
-            onChange={(evt) => this.inserePalavra(evt.target.value)}
-          />{" "}
-          {/* 100px */}
+          <h1>{i18n.t("textos.adicionarNovasPalavras")}</h1>
+
+          <Form onFinish={this.adicionarPalavra}>
+            <Form.Item
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+              id="palavraForm"
+            >
+              <Input
+                className="input-new-word"
+                suffix={<PlusOutlined onClick={this.adicionarPalavra} />}
+                placeholder={i18n.t("novo.adicionarPalavra")}
+                onChange={(evt) => this.inserePalavra(evt.target.value)}
+              />{" "}
+              {/* 100px */}
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit">
+                {i18n.t("novo.adicionarPalavra")}
+              </Button>
+            </Form.Item>
+          </Form>
         </div>
         <div className="content-video">
-          <h1>Adicionar vídeos ao dicionário</h1>
+          <h1>{i18n.t("textos.adicionarNovosVideos")}</h1>
           <div className="content-video-inside">
             <Select
               className="select-word"
@@ -211,7 +232,7 @@ class NovaPalavraVideo extends React.Component {
                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
               }
               onSelect={(arg) => {
-                console.log(arg);
+                this.setState({ palavraVideo: arg });
               }}
             >
               {palavras}
